@@ -1,0 +1,82 @@
+
+//+------------------------------------------------------------------+
+//|                                 Starlight MT4                      |
+//|                  https://www.forexroboteasy.com                    |
+//|                           Forex Robot Easy Team                    |
+//+------------------------------------------------------------------+
+
+//Set the input parameters
+extern int StopLoss = 30; //Stop Loss value
+extern int TakeProfit = 60; //Take Profit value
+extern int MaxSpread = 3; //Maximum allowed spread
+extern int Slippage = 2; //Maximum allowed slippage
+
+//Define the currency pairs
+string[] currencyPairs = {'EURUSD', 'GBPUSD', 'AUDCAD', 'EURAUD', 'EURCAD', 'GBPAUD', 'GBPCAD', 'USDCAD', 'EURGBP', 'USDCHF', 'GBPCHF', 'EURCHF', 'CHFJPY'};
+
+//Define the entry algorithm
+bool uniqueEntryAlgorithm()
+{
+   //Add your unique entry algorithm here
+   //Return true if entry condition is met, otherwise return false
+   return true;
+}
+
+//Mean Reverse Strategy
+void meanReverseStrategy()
+{
+   //Add your mean reverse strategy here
+   //Include logic for opening and closing trades based on the strategy
+}
+
+//Check if the current currency pair is compatible
+bool isCompatible(string currencyPair)
+{
+   for(int i=0; i<ArraySize(currencyPairs); i++)
+   {
+      if(currencyPairs[i] == currencyPair)
+         return true;
+   }
+   return false;
+}
+
+//Check for low risk and minimize drawdowns
+bool isLowRisk()
+{
+   //Add logic to check if the current trade is low risk
+   //Return true if it is, otherwise return false
+   return true;
+}
+
+//Entry point of the EA
+int start()
+{
+   //Loop through all currency pairs
+   for(int i=0; i<ArraySize(currencyPairs); i++)
+   {
+      string currencyPair = currencyPairs[i];
+      
+      //Check if the currency pair is compatible
+      if(!isCompatible(currencyPair))
+         continue;
+      
+      //Check if the unique entry condition is met
+      if(!uniqueEntryAlgorithm())
+         continue;
+      
+      //Mean Reverse Strategy
+      meanReverseStrategy();
+      
+      //Check if the trade is low risk
+      if(!isLowRisk())
+         continue;
+      
+      //Place the trade based on the algorithm
+      //Add your trading functions here
+       
+      //Add necessary code for opening and closing trades
+      
+   }
+   
+   return 0;
+}
